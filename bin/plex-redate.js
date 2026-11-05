@@ -186,6 +186,7 @@ while ( true ) {
 		);
 	}
 	db.exec( 'COMMIT' );
+	console.log();
 }
 
 db.close();
