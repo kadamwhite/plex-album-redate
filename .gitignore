@@ -1,0 +1,12 @@
+# Allow DBs to be dropped into directory while developing/testing.
+*.db*
+
+# Node / system.
+node_modules/
+*.bak-*
+*.log
+.DS_Store
+._*
+
+# We don't worry about pinning dependencies, this once.
+package-lock.json
