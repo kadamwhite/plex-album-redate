@@ -38,6 +38,31 @@ When you select "Y", the script will adjust the metadata rows for that album (ea
 
 Press Escape on the album selection screen to quit.
 
+### Database selection behavior and available flags
+
+The DB is resolved in this order: `--db <path>`, the `PLEX_LIBRARY_DB` environment variable, then any `*.db` in the current directory containing a `metadata_items` table.
+
+| Flag | Default | Purpose |
+|---|---|---|
+| `--db`, `-d` | auto | Path to the library DB |
+| `--limit`, `-n` | 40 | How many recent albums to list |
+| `--search`, `-s` | | Filter by album or artist title |
+
+While viewing the album list, `space` selects a row, `Enter` submits all selected rows (or the highlighted row), and `Escape` quits.
+
+## Installation
+
+Requires Node 22.5 or newer (uses the built-in `node:sqlite`).
+
+```sh
+git clone <this repo> plex-album-redate
+cd plex-album-redate
+npm install
+npm link
+```
+
+`npm link` puts `plex-redate` on your PATH for the active Node version. With nvm or fnm, re-run `npm link` after switching Node versions. To remove it, run `npm unlink -g plex-redate`.
+
 ## Backing up and unlocking the Plex database
 
 Editing the Plex DB is a little less straightforward than it used to be because of SQLite triggers.
